@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">Cost General Hospital</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                       </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="home_image">
+        <img class="home_img" src="{% static 'images/surgery-1807541_640.jpg' %}" alt="Surgery">
+    </div>
+    
+     
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <a href="{% url 'online_consultations' %}">
+                        <h3>Online Consultations</h3>
+                        <p>Consult with our expert doctors from the comfort of your home.</p>
+                    </a>
+                </div>
+                <div class="service">
+                    <a href="{% url 'physical_appointment' %}">
+                        <h3>Physical Appointments</h3>
+                        <p>Visit our state-of-the-art hospital for all your healthcare needs.</p>
+                    </a>
+                </div>
+                <div class="service">
+                    <a href="{% url 'emergency_care' %}">
+                        <h3>Emergency Care</h3>
+                        <p>24/7 emergency services for critical situations.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                Welcome to Cost General Hospital, where compassion meets cutting-edge technology. Established with a mission to provide accessible healthcare solutions, 
+                our hospital is a beacon of hope for countless individuals. We combine state-of-the-art facilities with a patient-centered approach, ensuring everyone 
+                receives the care they deserve.
+            </p>
+            <p>
+                Our highly trained medical staff works around the clock to deliver services that range from routine health checkups to complex surgeries. As a pioneer 
+                in online healthcare services, we are committed to bridging the gap between patients and healthcare professionals through secure and efficient digital platforms.
+            </p>
+            <p>
+                At Cost General Hospital, your health is our top priority. Join us as we continue to redefine the future of healthcare.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have any questions or need assistance? Reach out to us today!</p>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cost General Hospital. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

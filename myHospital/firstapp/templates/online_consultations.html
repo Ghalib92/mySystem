@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Appointment</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Book an Online Appointment</h1>
+        <p>Connect with our specialists from the comfort of your home.</p>
+    </header>
+    <section class="form-section">
+        <form id="appointment-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="service">Select Service</label>
+            <select id="service" name="service" required>
+                <option value="general-consultation">General Consultation</option>
+                <option value="specialist-consultation">Specialist Consultation</option>
+            </select>
+            
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" required>
+            
+            <button type="submit">Book Appointment</button>
+        </form>
+    </section>
+</body>
+</html>
