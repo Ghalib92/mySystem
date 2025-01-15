@@ -9,30 +9,13 @@
     <script defer src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <header class="header">
-        <h1>Schedule a Physical Appointment</h1>
-        <p>Visit our facility and get expert care.</p>
-    </header>
-    <section class="form-section">
-        <form id="physical-form" >
-            <label for="full-name">Full Name</label>
-            <input type="text" id="full-name" name="full-name" required>
-            
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
-            
-            <label for="department">Select Department</label>
-            <select id="department" name="department" required>
-                <option value="general-health">General Health</option>
-                <option value="pediatrics">Pediatrics</option>
-                <option value="orthopedics">Orthopedics</option>
-            </select>
-            
-            <label for="visit-date">Preferred Visit Date</label>
-            <input type="date" id="visit-date" name="visit-date" required>
-            
-            <button type="submit">Book Appointment</button>
+    <div class="form-container">
+        <h1>Book a Physical Appointment</h1>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
         </form>
-    </section>
+    </div>
 </body>
 </html>
