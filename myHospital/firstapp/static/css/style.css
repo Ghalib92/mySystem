@@ -249,3 +249,82 @@ form button:hover {
     transform: scale(1.05); /* Slight zoom-in effect */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
+/* Booking Success Page Styles */
+.booking-success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.booking-success-message {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.booking-success-message h2 {
+    color: #4caf50;  /* Green color for the success message */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.booking-success-message p {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.booking-details {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.booking-details h3 {
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.booking-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.booking-details ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.booking-details strong {
+    color: #000;
+}
+
+.booking-details li:last-child {
+    margin-bottom: 0;
+}
+
+.booking-success-message p {
+    color: #666;
+    font-size: 1rem;
+}
+.btnn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}

@@ -22,3 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Fade-in effect for the booking success page
+window.onload = function() {
+    var successMessage = document.querySelector('.booking-success-message');
+    successMessage.style.opacity = 0;
+
+    setTimeout(function() {
+        successMessage.style.transition = 'opacity 1s ease-in';
+        successMessage.style.opacity = 1;
+    }, 100); // Fade-in delay
+};
+
+// Auto-redirect after 5 seconds (Optional)
+setTimeout(function() {
+    window.location.href = '/';  // Redirect to homepage after 5 seconds
+}, 5000);
+
