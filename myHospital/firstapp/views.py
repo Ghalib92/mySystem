@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.template import loader
 from .forms import PhysicalAppointmentForm
 from .models import PhysicalAppointment
-
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 def home(request):
@@ -18,7 +19,26 @@ def physical(request):
         form = PhysicalAppointmentForm(request.POST)
         if form.is_valid():
            new_appointment= form.save()
-           return redirect('booking_success',appointment_id=new_appointment.id)  # Replace with your success page
+           user_email = new_appointment.email  # Field from the model
+           subject = 'Booking Confirmation'
+           message = (
+                f'Dear {new_appointment.name},\n\n'
+                f'Your booking has been confirmed. Here are the details:\n\n'
+                f'Service: {new_appointment.service_needed}\n'
+                 f'Appointment.date: {new_appointment.appointment_date}\n'
+                f'Thank you for choosing us!\n\n'
+                f'Best regards,\n'
+                f'Coast General Hospital'
+            )
+        from_email = settings.EMAIL_HOST_USER
+
+            # Send the email
+        try:
+                send_mail(subject, message, from_email, [user_email])
+        except Exception as e:
+                return render(request, 'email_error.html', {'error': str(e)})
+
+        return redirect('booking_success',appointment_id=new_appointment.id)  # Replace with your success page
     else:
         form = PhysicalAppointmentForm()
 
@@ -35,5 +55,6 @@ def booking(request,appointment_id):
     return render(request, 'booking_success.html', context)
 def emergency(request):
     template = loader.get_template('emergency_care.html')
-    return HttpResponse(template.render())  
+    return HttpResponse(template.render()) 
+
  
