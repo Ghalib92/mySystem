@@ -17,6 +17,11 @@
         <div class="emergency-info">
             <p><strong>24/7 Helpline:</strong> +254-123-456-789</p>
             <p><strong>Nearest Facility:</strong> Cost General Hospital, Mombasa</p>
+            <form method="post" novalidate>
+                {%csrf_token%}
+                {{form.as_p}}  
+                <button type="submit">Submit</button>          
+            </form>
         </div>
         <div id="emergency-map" class="map"></div>
     </section>

@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.template import loader
 from .forms import PhysicalAppointmentForm
 from .models import PhysicalAppointment
+from .forms import EmergencyCareForm
+from .models import EmergencyCare
 from django.core.mail import send_mail
 from django.conf import settings
 # Create your views here.
@@ -52,9 +54,19 @@ def booking(request,appointment_id):
         'email': appointment.email
 
  }
-    return render(request, 'booking_success.html', context)
+    return render(request,'booking_success.html', context)
 def emergency(request):
-    template = loader.get_template('emergency_care.html')
-    return HttpResponse(template.render()) 
+     if request.method == 'POST':
+          form = EmergencyCareForm(request.POST)
+          if form.is_valid():
+               form.save()
+               return redirect('emergency_booked')
+           
+     else:
+        form = EmergencyCareForm()
 
+    # If you forgot this line, the view returns None
+     return render(request, 'emergency_care.html', {'form': form})
+def emergency_booked(request):
+     return render(request, 'emergency_booked.html')
  
