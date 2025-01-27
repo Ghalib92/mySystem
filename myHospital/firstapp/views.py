@@ -75,4 +75,12 @@ def emergency_booked(request,emergency_id):
           'contact':emergency.contact_number
      }
      return render(request, 'emergency_booked.html',context)
+
+def AI(request):
+       template = loader.get_template('AI.html')
+       return HttpResponse(template.render())  
+
+def online_doctor(request):
+       template = loader.get_template('online_doctor.html')
+       return HttpResponse(template.render())  
  

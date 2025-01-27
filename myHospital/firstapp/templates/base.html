@@ -4,20 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Website{% endblock %}</title>
-    <!-- Link to your main CSS -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Optionally include other CSS libraries (e.g., Bootstrap) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Add any additional meta tags -->
+    <title>{% block title %}Coast General Hospital{% endblock %}</title>
+    <!-- Internal CSS -->
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #004080;
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+        .navbar .logo h1 a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .navbar nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #00264d;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        footer .footer-content ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        footer .footer-content ul li a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer .footer-content ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
-                <h1><a href="/">My Website</a></h1>
+                <h1><a href="/">Coast General Hospital</a></h1>
             </div>
             <nav>
                 <ul>
@@ -33,22 +115,21 @@
 
     <main>
         {% block content %}
-        <!-- This block will be overridden by the content of each page -->
+        <!-- Content will be injected here -->
         {% endblock %}
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 My Website. All Rights Reserved.</p>
             <ul>
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                 <li><a href="/terms-of-service">Terms of Service</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/help">Help</a></li>
             </ul>
+            <p>&copy; 2025 Coast General Hospital. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Include JavaScript files -->
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

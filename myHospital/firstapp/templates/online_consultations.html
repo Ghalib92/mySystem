@@ -3,35 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Appointment</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script defer src="{% static 'js/script.js' %}"></script>
+    <title>Doctor Consultation Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #45a049;
+        }
+
+        .info {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Book an Online Appointment</h1>
-        <p>Connect with our specialists from the comfort of your home.</p>
-    </header>
-    <section class="form-section">
-        <form id="appointment-form">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="service">Select Service</label>
-            <select id="service" name="service" required>
-                <option value="general-consultation">General Consultation</option>
-                <option value="specialist-consultation">Specialist Consultation</option>
-            </select>
-            
-            <label for="date">Preferred Date</label>
-            <input type="date" id="date" name="date" required>
-            
-            <button type="submit">Book Appointment</button>
-        </form>
-    </section>
+    <div class="container">
+        <h1>Consultation Options</h1>
+        <p>Choose how you'd like to proceed with your consultation:</p>
+        <div class="options">
+            <button class="option" onclick="selectAI()">Chat with AI Doctor</button>
+            <button class="option" onclick="selectOnline()">Talk to an Online Doctor</button>
+        </div>
+        <div class="info" id="info"></div>
+    </div>
+
+    <script>
+        function selectAI() {
+            const info = document.getElementById("info");
+            info.innerHTML = `
+                <strong>AI Doctor:</strong><br>
+                You will chat with an intelligent AI system that provides quick responses and advice.
+                <br><br>
+                <a href="{% url 'AI'%}" style="color: #4caf50; text-decoration: none;">Start Chat</a>
+            `;
+        }
+
+        function selectOnline() {
+            const info = document.getElementById("info");
+            info.innerHTML = `
+                <strong>Online Doctor:</strong><br>
+                You will be scheduled for a meeting with a human doctor.<br>
+                You will receive an email with the Google Meet link and time for the consultation.
+                <br><br>
+                <a href="{% url 'online_doctor' %}">Book Appointment</a>
+            `;
+        }
+    </script>
 </body>
 </html>
