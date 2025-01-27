@@ -15,8 +15,8 @@ class PhysicalAppointmentAdmin(admin.ModelAdmin):
 
 @admin.register(EmergencyCare)
 class EmergencyCareAdmin(admin.ModelAdmin):
-     list_display = ('patient_name', 'contact_number', 'condition_description', 'priority_level')
-     search_fields = ('patient_name', 'contact_number', 'condition_description', 'priority_level', )
-     list_filter = ('patient_name','condition_description', 'priority_level',)
+     list_display = ('patient_name', 'contact_number', 'condition_description', 'priority_level','location')
+     search_fields = ('patient_name', 'contact_number', 'condition_description', 'priority_level','location' )
+     list_filter = ('patient_name','condition_description', 'priority_level','location')
         # Order by most recent creation date
 

@@ -11,7 +11,7 @@ class PhysicalAppointmentForm(forms.ModelForm):
 class EmergencyCareForm(forms.ModelForm):
     class Meta:
         model = EmergencyCare
-        fields = ['patient_name','contact_number','condition_description','priority_level']
+        fields = ['patient_name','contact_number','condition_description','priority_level','location']
         widgets = {
             'priority_level': forms.Select(choices=EmergencyCare.priority_level),
             'appointment_date': forms.DateInput(attrs={'type': 'date'}),

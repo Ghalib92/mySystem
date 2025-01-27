@@ -59,14 +59,20 @@ def emergency(request):
      if request.method == 'POST':
           form = EmergencyCareForm(request.POST)
           if form.is_valid():
-               form.save()
-               return redirect('emergency_booked')
+             new_emergency = form.save()
+                
+          return redirect('emergency_booked',emergency_id=new_emergency.id)
            
      else:
         form = EmergencyCareForm()
 
     # If you forgot this line, the view returns None
      return render(request, 'emergency_care.html', {'form': form})
-def emergency_booked(request):
-     return render(request, 'emergency_booked.html')
+def emergency_booked(request,emergency_id):
+     emergency = get_object_or_404(EmergencyCare, id=emergency_id)
+     context = {
+          'name':emergency.patient_name,
+          'contact':emergency.contact_number
+     }
+     return render(request, 'emergency_booked.html',context)
  

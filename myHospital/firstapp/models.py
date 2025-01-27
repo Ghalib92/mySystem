@@ -23,12 +23,14 @@ class EmergencyCare(models.Model):
     contact_number = models.CharField(max_length=255)
     condition_description = models.TextField()
     priority_level = models.CharField(max_length=255,choices = [
+
         ('High', 'High'),
         ('Medium', 'Medium'),
         ('Low', 'Low'),
     ])
+    location = models.CharField(max_length=25, default='')
     timestamp = models.DateTimeField(auto_now_add=True)  # Automatically record the time of entry
 
     def __str__(self):
-        return f"{self.patient_name} - {self.condition_description}"
+        return f"{self.patient_name} - {self.condition_description} - {self.location}"
 
