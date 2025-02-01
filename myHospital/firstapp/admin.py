@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import PhysicalAppointment
-from .models import EmergencyCare
+from .models import EmergencyCare,online_doctor
 
 # Register your models here.
 # admin.py
@@ -19,4 +19,8 @@ class EmergencyCareAdmin(admin.ModelAdmin):
      search_fields = ('patient_name', 'contact_number', 'condition_description', 'priority_level','location' )
      list_filter = ('patient_name','condition_description', 'priority_level','location')
         # Order by most recent creation date
-
+@admin.register(online_doctor)
+class OnlineDoctorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone_number', 'service_type', 'date','time')
+    search_fields = ('name', 'email', 'phone_number', 'service_type', 'date','time')
+    list_filter = ('service_type', 'date')

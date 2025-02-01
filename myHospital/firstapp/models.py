@@ -33,4 +33,20 @@ class EmergencyCare(models.Model):
 
     def __str__(self):
         return f"{self.patient_name} - {self.condition_description} - {self.location}"
+    
+class online_doctor(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=20)
+    service_type = models.CharField(max_length=30,choices=[
+                ('gaenocology','gaenocology'),
+                ('consultation','consultation'),
+                ('patient_review','patient_review'),
+
+    ])
+    date = models.DateField()
+    time = models.TimeField()
+
+    def __str__(self):
+        return super().__str__()
 

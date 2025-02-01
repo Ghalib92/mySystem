@@ -2,7 +2,13 @@
 {%block title%} Online Doctor {%endblock%}
 {%block content%}
 
-
+<div class="form-container">
+    <h1>Book an Appointment</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 
 
 {%endblock%}

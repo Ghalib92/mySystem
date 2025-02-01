@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
-from .forms import PhysicalAppointmentForm
+from .forms import PhysicalAppointmentForm,online_doctorForm
 from .models import PhysicalAppointment
 from .forms import EmergencyCareForm
 from .models import EmergencyCare
@@ -81,6 +81,16 @@ def AI(request):
        return HttpResponse(template.render())  
 
 def online_doctor(request):
-       template = loader.get_template('online_doctor.html')
-       return HttpResponse(template.render())  
- 
+     if request.method == 'POST':
+          form = online_doctorForm(request.POST)
+          if form.is_valid():
+            new_online = form.save()
+            return redirect('online_doctor',)
+           
+     else:
+        form = online_doctorForm()
+                
+     return render(request, 'online_doctor.html',{'form': form})
+          
+     
+        
